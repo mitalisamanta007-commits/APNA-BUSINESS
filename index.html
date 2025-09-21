@@ -1,0 +1,249 @@
+<html>
+<body bgcolor = "985F1E">
+<center>
+
+
+  <meta charset="UTF-8">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      
+    }
+    .glow-image {
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+      transition: box-shadow 0.5s ease;
+    }
+    .glow-image:hover {
+      box-shadow: 0 0 60px rgba(255, 215, 0, 1),
+                  0 0 100px rgba(255, 215, 0, 0.6);
+    }
+  </style>
+
+			<marquee behavior = "alternate" direction = "right">
+			<img src= "logo-image.jpg" width = "1250" hight = "900" alt="Glowing Image" class="glow-image">
+			</marquee>
+
+<p><font size= "26" color = "black" face= "Berlin Sans FB">About Us:
+<br> <font size= "20" color="white">  Roshni Boutiques brings you elegance and comfort at an affordable price. From traditional to Western styles, we offer ready-made clothing for women, men, and children, with handcrafted designs and customization available. Shop with ease, including via Meesho to find pieces that reflect your style. 
+</p>
+<hr color ="black">
+<p>
+<font color ="black" size ="26">
+ For more info:</font>
+ </p>
+<p>
+
+<br><font color = "black"> CONTACT US: </font><I>	7603076884/ 8825185401</I>
+<br><font color = "black">GMAIL: </font>	<a href="https://mitalisamanta007@gmail.com"> roshni_boutiques@gmail.com </a>
+<br><font color = "black">ADDRESS: </font>	Vidyasagar Pally, Podrah, Howrah- 711109.
+<br>click here for google map:
+<a href ="https://maps.app.goo.gl/GqwJNCmD79GL6fiL9"><img src="google-map-image.png" width = "80" height= "90"></a>
+<br><font color = "black">OPEN HOURS:</font> Mon-Sun, 09:00 AM - 10:00 PM.
+
+
+
+<hr color ="black">
+<br><font color = "black" size = "24"> PHOTO GALLERY:</font>
+
+
+
+<lang=" en">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+     
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Lightbox style (like Google Images) */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2.5rem;
+      color: white;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.4);
+      user-select: none;
+    }
+
+    .arrow:hover {
+      background: rgba(0,0,0,0.7);
+    }
+
+    .prev { left: 30px; }
+    .next { right: 30px; }
+
+    /* Caption below image */
+    .caption {
+      margin-top: 15px;
+      color: white;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gallery">
+    <img src="black-dress-image.jpg" alt="MEN BLACK DESIGNER KURTA">
+    <img src="printed-dress-image.jpg" alt="MEN RADHA-KRISHNA PRINTED KURTA">
+    <img src="guitar-dress-image.jpg" alt="MEN GUITAR PRINTED KURTA">
+    <img src="flower-dress-image.jpg" alt="WOMEN ONE-PIECE">
+    <img src="yellow-dress-image.jpg" alt="WOMEN YELLOW DESIGNER KURTI">
+    <img src="frock-dress-image.jpg" alt="CHILDREN FROCKS">
+    <img src="two-piece-dress-image.jpeg" alt="CHILDREN FASHIONABLE TWO-PIECE">
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="close" id="close">&times;</span>
+    <span class="arrow prev" id="prev">&#10094;</span>
+    <img id="lightbox-img" src="">
+    <span class="arrow next" id="next">&#10095;</span>
+    <div class="caption" id="caption"></div>
+  </div>
+
+  <script>
+    const galleryImages = document.querySelectorAll('.gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const caption = document.getElementById('caption');
+    const closeBtn = document.getElementById('close');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+
+    let currentIndex = 0;
+
+    function showImage(index) {
+      currentIndex = index;
+      lightboxImg.src = galleryImages[index].src;
+      caption.textContent = galleryImages[index].alt;
+      lightbox.style.display = 'flex';
+    }
+
+    galleryImages.forEach((img, index) => {
+      img.addEventListener('click', () => showImage(index));
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      showImage(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      showImage(currentIndex);
+    });
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
+    });
+
+    // Keyboard navigation (← → Esc)
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.style.display === 'flex') {
+        if (e.key === 'ArrowLeft') prevBtn.click();
+        if (e.key === 'ArrowRight') nextBtn.click();
+        if (e.key === 'Escape') closeBtn.click();
+      }
+    });
+  </script>
+
+<hr color ="black">
+
+<font size ="20" color ="black"> Connet with us on: </font>
+<a href ="https://www.instagram.com/abhiinav_giri?igsh=a2plbGQzM3BhZ3hy"><img src="instagram-logo-image.png" width = "90" height= "90"></a>
+Instagram Page, 
+
+<br><a href ="https://wa.me/917603076884"><img src="whatsapp-logo-image.png" width = "90" height= "90"></a>Whatsapp,
+
+<br><a href ="https://www.linkedin.com/in/mitali-samanta-8b38a2339?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="linkedin-logo-image.png" width = "90" height= "90"></a> LinkedIn.
+
+
+<br><font color ="black" face="calibri">(for visiting the pages directly, just click on the icons)</font>
+
+<hr color="black">
+<font size ="40" color ="black"> THANK YOU FOR VISITING 
+
+
+<p>
+<img src="border-image.jpg" height ="73" width = "5400">
+ </font>
+</font>
+
+</center>
+ 
+
+
+
+</body>
+</html>
